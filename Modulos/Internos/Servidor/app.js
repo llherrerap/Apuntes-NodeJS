@@ -4,7 +4,7 @@ const fs = require('fs')
 
 //Crear el servidor con el metodo createServer
 const server = http.createServer((req, res) => {
-    //Leer el archivo index-html
+    //Leer el archivo index.html
     fs.readFile('index.html', 'utf8', (error, data) => {
         //si ocurre algun error
         if (error) {
@@ -23,4 +23,5 @@ const puerto = 3000;
 //Iniciar el servidor
 server.listen(puerto, ()=>{
     console.log(`El servidor se esta ejecutando por: http://localhost:${puerto}`)
+    // Para cerrar el puerto utilizan ctrl c
 })
