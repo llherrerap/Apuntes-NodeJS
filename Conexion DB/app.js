@@ -17,9 +17,18 @@ conexion.connect((error) => {
         console.log(`Ha ocurrido un error en la base de datos: ${error}`)
         return;
     } else {
-        console.log("Conexion exitosa en la base de datos")
+        console.log(`Conexion exitosa en la base de datos ${config.database}`)
     }
-
+    
+    //query es el metodo que permite realizar y ejecutar comandos desde la app hacia la base de datos
+    conexion.query('SELECT * FROM persona WHERE id=1;', (error, data) => {
+        if (error) {
+            console.log(`Ocurrio un error en la consulta ${error}`)
+        } else{
+            console.log(data)
+        }
+    })
+    
     //end permite cerrar esta conexion a la base datos
     conexion.end((error) => {
         if (error) {
